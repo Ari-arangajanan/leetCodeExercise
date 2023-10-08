@@ -30,8 +30,11 @@ public class Main {
             result = result.next;
         }
 
-
-
+        // longest String
+        String s = "abcabcbb";
+        FindLongString findLongString = new FindLongString();
+        int y = findLongString.longestSubString(s);
+        System.out.println(y);
     }
 
 

@@ -2,25 +2,22 @@ import java.util.*;
 
 
 public class FindLongString {
-    int longestSubString(String s){
+    public int longestSubString(String s){
         int start = 0;
         int end = 0;
-        List<Character> string = new ArrayList<>();
+        List<Character> stringList = new ArrayList<>();
         int maxLength=0;
 
-        if (!s.equals("")){
-            List<Character> characterList = new ArrayList<>();
-            for(int i =0; i<s.length(); i++){
-                characterList.add(s.charAt(i));
-            }
-
-            for (Character x : characterList){
-                string.add(x);
-                
-
+        while (end<s.length()){
+            if (!stringList.contains(s.charAt(end))){
+                stringList.add(s.charAt(end));
+                end++;
+                maxLength=Math.max(maxLength,stringList.size());
+            }else {
+                stringList.remove(Character.valueOf(s.charAt(start)));// valuse of is needed because otyherwise s.charAT take ASCCi calue and throw memory outer bounce exception
+                start++;
             }
         }
-
         return maxLength;
     }
 }
